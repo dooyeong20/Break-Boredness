@@ -5,14 +5,7 @@
     "node": true,
     "commonjs": true
   },
-  // eslint docs 참고, react 개발환경 플러그인
-  // https://www.npmjs.com/package/eslint-plugin-react-hooks
-  // https://www.npmjs.com/package/eslint-plugin-react
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
-  ],
+  "plugins": ["react"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -22,17 +15,21 @@
   },
   "rules": {
     "no-console": "warn",
-    "prefer-arrow-callback": "error", // Require using arrow functions for callbacks
+    "prefer-arrow-callback": "warn", // Require using arrow functions for callbacks
     "require-await": "error",
-    "arrow-parens": ["error", "as-needed"], // a => {}
+    "arrow-parens": ["warn", "as-needed"], // a => {}
     "no-param-reassign": ["error", { "props": false }],
+    "no-undef": "error",
     "no-unused-expressions": [
-      "error",
+      "warn",
       {
         "allowTernary": true, // a || b
         "allowShortCircuit": true, // a ? b : 0
         "allowTaggedTemplates": true
       }
-    ]
+    ],
+    // 개인 설정 추가
+    "react/jsx-key": "warn",
+    "react/jsx-no-undef": "error"
   }
 }
