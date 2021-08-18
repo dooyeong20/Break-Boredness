@@ -10,6 +10,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   target: ['web', 'es5'],
   entry: './src/',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__ROOT, 'dist'),
     filename: '[name].js',

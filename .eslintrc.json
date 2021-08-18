@@ -1,7 +1,9 @@
 {
   "env": {
     // document 전역 객체 사용을 위함
-    "browser": true
+    "browser": true,
+    "node": true,
+    "commonjs": true
   },
   // eslint docs 참고, react 개발환경 플러그인
   // https://www.npmjs.com/package/eslint-plugin-react-hooks
