@@ -21,6 +21,7 @@ module.exports = {
     alias: {
       app: path.resolve(__ROOT, 'src/app'),
       components: path.resolve(__ROOT, 'src/components'),
+      assets: path.resolve(__ROOT, 'src/assets'),
     },
   },
   devServer: {
@@ -43,6 +44,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
     ],
   },
