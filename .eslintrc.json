@@ -1,0 +1,36 @@
+{
+  "env": {
+    // document 전역 객체 사용을 위함
+    "browser": true
+  },
+  // eslint docs 참고, react 개발환경 플러그인
+  // https://www.npmjs.com/package/eslint-plugin-react-hooks
+  // https://www.npmjs.com/package/eslint-plugin-react
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "warn",
+    "prefer-arrow-callback": "error", // Require using arrow functions for callbacks
+    "require-await": "error",
+    "arrow-parens": ["error", "as-needed"], // a => {}
+    "no-param-reassign": ["error", { "props": false }],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTernary": true, // a || b
+        "allowShortCircuit": true, // a ? b : 0
+        "allowTaggedTemplates": true
+      }
+    ]
+  }
+}
