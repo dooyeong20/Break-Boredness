@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { getLinebreakedSpans } from '../../utils';
+import styled, { keyframes } from 'styled-components';
+import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
+import DropSpan from '../DropSpan/DropSpan';
 
 const StyledContent = styled.section.attrs(({ theme }) => {
   const { textColor } = theme;
@@ -25,13 +26,18 @@ const StyledContent = styled.section.attrs(({ theme }) => {
 `;
 
 export default function Content() {
+  const { context } = useBreakBorednessContext();
+  const { category } = context.state;
+
   return (
     <StyledContent>
       <span> fill your </span>
       <span className="big"> spare time</span>
       <span> with some </span>
       <br />
-      <span className="big">random</span>
+      <DropSpan key={category} big>
+        {category}
+      </DropSpan>
       <span> activities </span>
     </StyledContent>
   );

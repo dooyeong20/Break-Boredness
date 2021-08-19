@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
+import DropSpan from '../DropSpan/DropSpan';
+import { getRandomActivity } from 'src/utils';
 
 const StyledTypeBar = styled.div.attrs(({ theme }) => {
   const { bgColor, textColor } = theme;
@@ -16,8 +19,12 @@ const StyledTypeBar = styled.div.attrs(({ theme }) => {
   color: ${({ $textColor }) => $textColor};
   background: ${({ $bgColor }) => $bgColor};
 
-  margin-top: 60px;
-  height: 2.4rem;
+  margin-top: 3.5rem;
+  height: 3.1rem;
+
+  @media only screen and (min-width: 560px) {
+    height: 2.3rem;
+  }
 `;
 
 const StyledTypeSelectButton = styled.button.attrs(({ theme }) => {
@@ -36,26 +43,41 @@ const StyledTypeSelectButton = styled.button.attrs(({ theme }) => {
   border-radius: 40px;
 
   text-transform: uppercase;
-  font-weight: bold;
 
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.05s ease-in-out;
 
   box-shadow: 1px 3px 15px 0 rgba(0, 0, 0, 0.4);
 
   &:hover {
-    transform: scale(105%);
+    transform: scale(103%);
   }
 
   &:active {
     transform: scale(100%);
   }
+  width: 80%;
+
+  @media only screen and (min-width: 300px) {
+  }
 `;
 
 export default function TypeBar() {
+  const {
+    context: { state },
+  } = useBreakBorednessContext();
+
+  const clickHandler = e => {
+    getRandomActivity().then(res => console.log(res));
+  };
+
   return (
     <StyledTypeBar>
-      <StyledTypeSelectButton>random</StyledTypeSelectButton>
+      <StyledTypeSelectButton onClick={clickHandler}>
+        <span>check out</span>{' '}
+        <DropSpan key={state.category}>{state.category}</DropSpan>{' '}
+        <span>activity!</span>
+      </StyledTypeSelectButton>
     </StyledTypeBar>
   );
 }

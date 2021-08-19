@@ -7,18 +7,28 @@ import {
   GiStoneCrafting,
 } from 'react-icons/gi';
 import { BsBookHalf } from 'react-icons/bs';
-import { FaHandsHelping, FaMusic, FaUserFriends } from 'react-icons/fa';
+import {
+  FaHandsHelping,
+  FaMusic,
+  FaQuestionCircle,
+  FaUserFriends,
+} from 'react-icons/fa';
 import { RiGameFill } from 'react-icons/ri';
 import { AiFillGithub } from 'react-icons/ai';
 import { SiGmail } from 'react-icons/si';
 
 export const ACTIVITY_TYPES = [
   {
+    title: 'random',
+    detail: 'Complete Random',
+    SVG: FaQuestionCircle,
+  },
+  {
     title: 'education',
-    detail: 'Learn Someting',
+    detail: 'Learn Something',
     SVG: BsBookHalf,
   },
-  { title: 'recreational', detail: 'Someting Fun!', SVG: RiGameFill },
+  { title: 'recreational', detail: 'Something Fun!', SVG: RiGameFill },
   { title: 'social', detail: 'Social Activities', SVG: FaUserFriends },
   { title: 'diy', detail: 'Make Something', SVG: GiStoneCrafting },
   {
@@ -39,7 +49,7 @@ export const ACTIVITY_TYPES = [
   },
   {
     title: 'busywork',
-    detail: 'For Koreans ...',
+    detail: 'Maybe For Koreans ...',
     SVG: GiDeskLamp,
   },
 ];
@@ -61,9 +71,16 @@ export const FOOTER_ITEMS = [
 
 export const GlobalStyle = createGlobalStyle`
   html {
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Roboto', sans-serif;
   }
+  
+  @media only screen and (min-width: 500px){
+    html {
+      font-size: 16px;
+    }
+  }
+
 
   html * {
     box-sizing: border-box;
@@ -88,3 +105,5 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
   }
 `;
+
+export const END_POINT = 'http://www.boredapi.com/api/activity';

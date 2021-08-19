@@ -11,11 +11,9 @@ const StyledFooter = styled.footer.attrs(({ theme }) => {
     $textColor: textColor,
   };
 })`
-  position: absolute;
-  bottom: 1.8rem;
-
   width: 100%;
   height: 4rem;
+  padding: 5rem 0;
 
   display: flex;
   justify-content: space-around;

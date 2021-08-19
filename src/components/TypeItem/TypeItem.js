@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
 
 const StyledTypeItem = styled.div.attrs(({ theme }) => {
   const { fgColor, bgColor, textColor } = theme;
@@ -10,6 +11,9 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
     $textColor: textColor,
   };
 })`
+  position: relative;
+  overflow: hidden;
+
   text-align: center;
   font-size: 0.9rem;
   font-weight: bold;
@@ -23,16 +27,39 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
   border-radius: 15px;
   background: ${({ $bgColor }) => $bgColor};
 
-  box-shadow: 1px 3px 15px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 3px 15px 0 rgba(0, 0, 0, 0.7);
   transition: all 0.25s ease-in-out;
-  &:hover {
-    transform: scale(105%);
-    box-shadow: 1px 3px 30px 0 rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    top: -1px;
+
+    transition: all 0.25s ease-in-out;
   }
 
-  p {
-    width: 80%;
-    margin: auto;
+  &:hover {
+    transform: scale(105%);
+    box-shadow: 1px 3px 30px 0 rgba(0, 0, 0, 0.5);
+
+    &::after {
+      content: '${({ $detail }) => $detail}';
+      color: #f8f9fa;
+      line-height: 140%;
+      background: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    text-align: center;
     margin-top: 0.8rem;
   }
 
@@ -45,12 +72,20 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
 `;
 
 export default function TypeItem({ category }) {
-  const { detail, SVG } = category;
+  const { title, detail, SVG } = category;
+  const {
+    context: { dispatch },
+  } = useBreakBorednessContext();
 
   return (
-    <StyledTypeItem>
+    <StyledTypeItem
+      onClick={() => {
+        dispatch({ type: 'CATEGORY', category: title });
+      }}
+      $detail={detail}
+    >
       <SVG />
-      <p>{detail}</p>
+      <h3>{title}</h3>
     </StyledTypeItem>
   );
 }
