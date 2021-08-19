@@ -30,7 +30,8 @@ export default function Content() {
       <span> fill your </span>
       <span className="big"> spare time</span>
       <span> with some </span>
-      <span className="big">Random</span>
+      <br />
+      <span className="big">random</span>
       <span> activities </span>
     </StyledContent>
   );

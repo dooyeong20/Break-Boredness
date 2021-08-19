@@ -8,6 +8,7 @@ import TypeBar from '../components/TypeBar/TypeBar';
 import TypeBox from '../components/TypeBox/TypeBox';
 import { getLinebreakedSpans } from '../utils';
 import { ACTIVITY_TYPES } from 'src/globalVars';
+import Footer from '../components/Footer/Footer';
 
 const StyledAppContainer = styled.div.attrs(({ theme }) => {
   const { bgColor } = theme;
@@ -33,6 +34,8 @@ const StyledApp = styled.section.attrs(({ theme }) => {
     $bgColor: fgColor,
   };
 })`
+  position: relative;
+  overflow: hidden;
   width: 85%;
   height: 90%;
 
@@ -51,6 +54,7 @@ export default function App() {
           <Content />
           <TypeBar />
           <TypeBox types={ACTIVITY_TYPES} />
+          <Footer />
         </StyledApp>
       </StyledAppContainer>
     </ThemeProvider>

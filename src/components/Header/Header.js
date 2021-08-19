@@ -12,7 +12,7 @@ const StyledHeader = styled.h1.attrs(({ theme }) => {
   line-height: 130%;
   text-align: center;
 
-  margin-top: 85px;
+  margin-top: 4rem;
   color: ${({ $textColor }) => $textColor};
 
   text-transform: uppercase;

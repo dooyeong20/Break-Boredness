@@ -9,6 +9,8 @@ import {
 import { BsBookHalf } from 'react-icons/bs';
 import { FaHandsHelping, FaMusic, FaUserFriends } from 'react-icons/fa';
 import { RiGameFill } from 'react-icons/ri';
+import { AiFillGithub } from 'react-icons/ai';
+import { SiGmail } from 'react-icons/si';
 
 export const ACTIVITY_TYPES = [
   {
@@ -39,6 +41,21 @@ export const ACTIVITY_TYPES = [
     title: 'busywork',
     detail: 'For Koreans ...',
     SVG: GiDeskLamp,
+  },
+];
+
+export const FOOTER_ITEMS = [
+  {
+    id: 1,
+    title: 'Github',
+    link: 'https://github.com/dooyeong20/Break-Boredness',
+    SVG: AiFillGithub,
+  },
+  {
+    id: 2,
+    title: 'Mail',
+    link: 'noviced22@gmail.com',
+    SVG: SiGmail,
   },
 ];
 

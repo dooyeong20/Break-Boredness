@@ -7,6 +7,9 @@ const StyledTypeScrollBox = styled.div`
   width: 100%;
   margin-top: 2rem;
   overflow-x: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const StyledTypeBox = styled.div.attrs(({ theme, typeCount }) => {
