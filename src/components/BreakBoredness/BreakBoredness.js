@@ -55,15 +55,17 @@ export default function BreakBoredness() {
   } = useBreakBorednessContext();
 
   return (
-    <StyledAppContainer>
-      <StyledApp>
-        {(isLoading || result) && <Result />}
-        <Header>{getLinebreakedSpans(['break', 'boredness'])}</Header>
-        <Content />
-        <TypeBar />
-        <TypeBox types={ACTIVITY_TYPES} />
-        <Footer />
-      </StyledApp>
-    </StyledAppContainer>
+    <>
+      {(isLoading || result) && <Result />}
+      <StyledAppContainer>
+        <StyledApp>
+          <Header>{getLinebreakedSpans(['break', 'boredness'])}</Header>
+          <Content />
+          <TypeBar />
+          <TypeBox types={ACTIVITY_TYPES} />
+          <Footer />
+        </StyledApp>
+      </StyledAppContainer>
+    </>
   );
 }
