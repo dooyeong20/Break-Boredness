@@ -26,9 +26,9 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
 
   border-radius: 15px;
   color: ${({ $isSelected, $textColor }) =>
-    $isSelected ? $textColor : '#f8f9fa'};
+    $isSelected ? '#f8f9fa' : $textColor};
   background: ${({ $bgColor, $isSelected }) =>
-    $isSelected ? $bgColor : '#343a40'};
+    $isSelected ? '#343a40' : $bgColor};
 
   box-shadow: 1px 3px 15px 0 rgba(0, 0, 0, 0.7);
   transition: all 0.25s ease-in-out;
@@ -71,7 +71,7 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
     height: 5rem;
     width: 5rem;
     fill: ${({ $textColor, $isSelected }) =>
-      $isSelected ? $textColor : '#f8f9fa'};
+      $isSelected ? '#f8f9fa' : $textColor};
   }
 `;
 
