@@ -7,7 +7,9 @@
     "start": "npm run dev -- --watch-content-base --hot",
     "dev": "webpack serve -c config/webpack.config.js --node-env=development",
     "build": "webpack -c config/webpack.config.js --node-env=production",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "predeploy": "git push origin :gh-pages && npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
   "dependencies": {
     "@babel/runtime": "^7.15.3",
     "axios": "^0.21.1",
+    "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0"
