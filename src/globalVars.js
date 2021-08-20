@@ -71,6 +71,7 @@ export const FOOTER_ITEMS = [
 
 export const GlobalStyle = createGlobalStyle`
   html {
+    position: relative;
     font-size: 12px;
     font-family: 'Roboto', sans-serif;
   }

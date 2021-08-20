@@ -17,6 +17,7 @@ const StyledAppContainer = styled.div.attrs(({ theme }) => {
     $bgColor: bgColor,
   };
 })`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,8 +57,8 @@ export default function BreakBoredness() {
 
   return (
     <>
-      {(isLoading || result) && <Result />}
       <StyledAppContainer>
+        {(isLoading || result) && <Result />}
         <StyledApp>
           <Header>{getLinebreakedSpans(['break', 'boredness'])}</Header>
           <Content />
