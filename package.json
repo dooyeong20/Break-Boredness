@@ -8,7 +8,7 @@
     "dev": "webpack serve -c config/webpack.config.js --node-env=development",
     "build": "webpack -c config/webpack.config.js --node-env=production",
     "clean": "rm -rf dist",
-    "predeploy": "git push origin :gh-pages && npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
