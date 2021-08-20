@@ -1,12 +1,14 @@
 import React from 'react';
+import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
+import { ACTIVITY_TYPES } from 'src/globalVars';
+import Result from 'src/Result/Result';
+import styled from 'styled-components';
+import { getLinebreakedSpans } from '../../utils';
 import Content from '../Content/Content';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import TypeBar from '../TypeBar/TypeBar';
 import TypeBox from '../TypeBox/TypeBox';
-import { getLinebreakedSpans } from '../../utils';
-import { ACTIVITY_TYPES } from 'src/globalVars';
-import Footer from '../Footer/Footer';
-import styled from 'styled-components';
 
 const StyledAppContainer = styled.div.attrs(({ theme }) => {
   const { bgColor } = theme;
@@ -32,13 +34,14 @@ const StyledApp = styled.section.attrs(({ theme }) => {
     $bgColor: fgColor,
   };
 })`
-  @media only screen and (min-height: 630px) {
+  @media screen and (min-height: 630px) {
     position: relative;
     height: auto;
   }
 
   overflow: scroll;
   width: 85%;
+  min-width: 270px;
   height: 90%;
 
   border-radius: 20px;
@@ -47,9 +50,14 @@ const StyledApp = styled.section.attrs(({ theme }) => {
 `;
 
 export default function BreakBoredness() {
+  const {
+    state: { isLoading, result },
+  } = useBreakBorednessContext();
+
   return (
     <StyledAppContainer>
       <StyledApp>
+        {(isLoading || result) && <Result />}
         <Header>{getLinebreakedSpans(['break', 'boredness'])}</Header>
         <Content />
         <TypeBar />

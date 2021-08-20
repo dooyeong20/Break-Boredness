@@ -26,8 +26,9 @@ const StyledContent = styled.section.attrs(({ theme }) => {
 `;
 
 export default function Content() {
-  const { context } = useBreakBorednessContext();
-  const { category } = context.state;
+  const {
+    state: { category },
+  } = useBreakBorednessContext();
 
   return (
     <StyledContent>

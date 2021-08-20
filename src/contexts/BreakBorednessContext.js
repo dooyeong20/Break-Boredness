@@ -5,6 +5,7 @@ const BreakBorednessContext = createContext();
 const initialState = {
   category: 'random',
   isLoading: false,
+  result: null,
 };
 
 const reducer = (state, action) => {
@@ -17,7 +18,19 @@ const reducer = (state, action) => {
     case 'ISLOADING':
       return {
         ...state,
-        isLoading: !state.isLoading,
+        isLoading: action.isLoading,
+      };
+    case 'RESULT':
+      return {
+        ...state,
+        result: action.result,
+        isLoading: false,
+      };
+    case 'RESET':
+      return {
+        ...state,
+        result: null,
+        isLoading: false,
       };
     default:
       throw new Error('Unhandled action.type !');
@@ -45,5 +58,5 @@ export const useBreakBorednessContext = () => {
     );
   }
 
-  return { context };
+  return context;
 };

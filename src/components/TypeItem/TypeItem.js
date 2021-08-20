@@ -25,7 +25,10 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
   height: 10rem;
 
   border-radius: 15px;
-  background: ${({ $bgColor }) => $bgColor};
+  color: ${({ $isSelected, $textColor }) =>
+    $isSelected ? $textColor : '#f8f9fa'};
+  background: ${({ $bgColor, $isSelected }) =>
+    $isSelected ? $bgColor : '#343a40'};
 
   box-shadow: 1px 3px 15px 0 rgba(0, 0, 0, 0.7);
   transition: all 0.25s ease-in-out;
@@ -58,24 +61,23 @@ const StyledTypeItem = styled.div.attrs(({ theme }) => {
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
   }
 
   svg {
     margin-top: 1rem;
     height: 5rem;
     width: 5rem;
-    fill: ${({ $textColor }) => $textColor};
+    fill: ${({ $textColor, $isSelected }) =>
+      $isSelected ? $textColor : '#f8f9fa'};
   }
 `;
 
 export default function TypeItem({ category }) {
   const { title, detail, SVG } = category;
-  const {
-    context: { dispatch },
-  } = useBreakBorednessContext();
+  const { state, dispatch } = useBreakBorednessContext();
 
   return (
     <StyledTypeItem
@@ -83,6 +85,7 @@ export default function TypeItem({ category }) {
         dispatch({ type: 'CATEGORY', category: title });
       }}
       $detail={detail}
+      $isSelected={state.category === title}
     >
       <SVG />
       <h3>{title}</h3>
