@@ -106,4 +106,4 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const END_POINT = 'http://www.boredapi.com/api/activity';
+export const END_POINT = 'https://www.boredapi.com/api/activity';
