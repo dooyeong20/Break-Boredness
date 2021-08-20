@@ -1,0 +1,35 @@
+{
+  "env": {
+    // document 전역 객체 사용을 위함
+    "browser": true,
+    "node": true,
+    "commonjs": true
+  },
+  "plugins": ["react"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "warn",
+    "prefer-arrow-callback": "warn", // Require using arrow functions for callbacks
+    "require-await": "error",
+    "arrow-parens": ["warn", "as-needed"], // a => {}
+    "no-param-reassign": ["error", { "props": false }],
+    "no-undef": "error",
+    "no-unused-expressions": [
+      "warn",
+      {
+        "allowTernary": true, // a || b
+        "allowShortCircuit": true, // a ? b : 0
+        "allowTaggedTemplates": true
+      }
+    ],
+    // 개인 설정 추가
+    "react/jsx-key": "warn",
+    "react/jsx-no-undef": "error"
+  }
+}
