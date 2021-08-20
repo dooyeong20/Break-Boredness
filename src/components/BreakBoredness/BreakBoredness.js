@@ -22,10 +22,20 @@ const StyledAppContainer = styled.div.attrs(({ theme }) => {
   justify-content: center;
   align-items: center;
 
+  overflow: hidden;
   width: 100%;
   height: 100vh;
 
   background: ${({ $bgColor }) => $bgColor};
+`;
+
+const ScrollBarHiddenBox = styled.div`
+  width: 85%;
+  min-width: 270px;
+  height: 90%;
+  border-radius: 20px;
+
+  overflow: hidden;
 `;
 
 const StyledApp = styled.section.attrs(({ theme }) => {
@@ -39,13 +49,13 @@ const StyledApp = styled.section.attrs(({ theme }) => {
     position: relative;
     height: auto;
   }
+  box-sizing: content-box;
+  padding-right: 2rem;
+  overflow-y: scroll;
+  flex: 0 0 85%;
+  width: 100%;
+  height: 100%;
 
-  overflow: scroll;
-  width: 85%;
-  min-width: 270px;
-  height: 90%;
-
-  border-radius: 20px;
   background: ${({ $bgColor }) => $bgColor};
   box-shadow: 2px 5px 30px 0 rgba(0, 0, 0, 1);
 `;
@@ -58,14 +68,16 @@ export default function BreakBoredness() {
   return (
     <>
       <StyledAppContainer>
-        {(isLoading || result) && <Result />}
-        <StyledApp>
-          <Header>{getLinebreakedSpans(['break', 'boredness'])}</Header>
-          <Content />
-          <TypeBar />
-          <TypeBox types={ACTIVITY_TYPES} />
-          <Footer />
-        </StyledApp>
+        <ScrollBarHiddenBox>
+          {(isLoading || result) && <Result />}
+          <StyledApp>
+            <Header>{getLinebreakedSpans(['break', 'boredness'])}</Header>
+            <Content />
+            <TypeBar />
+            <TypeBox types={ACTIVITY_TYPES} />
+            <Footer />
+          </StyledApp>
+        </ScrollBarHiddenBox>
       </StyledAppContainer>
     </>
   );
