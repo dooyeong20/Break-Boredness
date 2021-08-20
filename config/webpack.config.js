@@ -61,7 +61,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Random Activity',
+      title: 'Break Boredness',
       template: path.resolve(__ROOT, 'index.html'),
       filename: 'index.html',
     }),
