@@ -2,9 +2,9 @@
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdooyeong20%2FBreak-Boredness&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) ![](https://img.shields.io/github/languages/top/dooyeong20/break-boredness)
 
-<h1> Break-Boredness </h1>
+<h1> Break-Boredness v1.0</h1>
 
-<img src="./img/main.gif" width=200>
+<img src="./img/main.gif" width=350>
 
 </br> </br>
 <b>Escape from boring time and get some fun! </b>
