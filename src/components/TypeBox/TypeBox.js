@@ -3,13 +3,18 @@ import styled from 'styled-components';
 import TypeItem from '../TypeItem/TypeItem';
 import PropTypes from 'prop-types';
 
+const ScrollHiddenBox = styled.div`
+  width: 100%;
+  overflow: hidden;
+  height: 14rem;
+`;
+
 const StyledTypeScrollBox = styled.div`
   width: 100%;
   margin-top: 2rem;
   overflow-x: scroll;
-  ::-webkit-scrollbar {
-    display: none;
-  }
+  box-sizing: content-box;
+  padding-bottom: 2rem;
 `;
 
 const StyledTypeBox = styled.div.attrs(({ theme, typeCount }) => {
@@ -27,6 +32,7 @@ const StyledTypeBox = styled.div.attrs(({ theme, typeCount }) => {
   align-items: center;
 
   width: ${({ $width }) => $width};
+
   padding: 1rem 0;
   overflow-x: scroll;
 
@@ -35,13 +41,15 @@ const StyledTypeBox = styled.div.attrs(({ theme, typeCount }) => {
 
 export default function TypeBox({ types }) {
   return (
-    <StyledTypeScrollBox>
-      <StyledTypeBox typeCount={types.length}>
-        {types.map(type => (
-          <TypeItem key={type.title} category={type}></TypeItem>
-        ))}
-      </StyledTypeBox>
-    </StyledTypeScrollBox>
+    <ScrollHiddenBox>
+      <StyledTypeScrollBox>
+        <StyledTypeBox typeCount={types.length}>
+          {types.map(type => (
+            <TypeItem key={type.title} category={type}></TypeItem>
+          ))}
+        </StyledTypeBox>
+      </StyledTypeScrollBox>
+    </ScrollHiddenBox>
   );
 }
 
