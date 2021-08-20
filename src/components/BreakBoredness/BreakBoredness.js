@@ -52,7 +52,7 @@ const StyledApp = styled.section.attrs(({ theme }) => {
   box-sizing: content-box;
   padding-right: 2rem;
   overflow-y: scroll;
-  flex: 0 0 85%;
+  overflow-y: overlay;
   width: 100%;
   height: 100%;
 
