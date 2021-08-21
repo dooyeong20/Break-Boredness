@@ -4,7 +4,7 @@
 
 <h1> Break-Boredness </h1>
 
-<img src="./img/main.gif" width=350>
+<img src="./img/main_v1.2.gif" width=350>
 
 </br>
 
