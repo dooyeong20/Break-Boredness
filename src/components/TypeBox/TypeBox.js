@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import TypeItem from '../TypeItem/TypeItem';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { TypeItem } from 'src/components';
+import styled from 'styled-components';
 
 const ScrollHiddenBox = styled.div`
   width: 100%;
@@ -17,13 +17,8 @@ const StyledTypeScrollBox = styled.div`
   padding-bottom: 2rem;
 `;
 
-const StyledTypeBox = styled.div.attrs(({ theme, typeCount }) => {
-  const { fgColor, bgColor, textColor } = theme;
-
+const StyledTypeBox = styled.div.attrs(({ typeCount }) => {
   return {
-    $fgColor: fgColor,
-    $bgColor: bgColor,
-    $textColor: textColor,
     $width: `${typeCount * 13}rem`,
   };
 })`
@@ -35,8 +30,6 @@ const StyledTypeBox = styled.div.attrs(({ theme, typeCount }) => {
 
   padding: 1rem 0;
   overflow-x: scroll;
-
-  background: ${({ $bgColor }) => $bgColor}; ;
 `;
 
 export default function TypeBox({ types }) {

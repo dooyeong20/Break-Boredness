@@ -1,23 +1,15 @@
 import React from 'react';
-import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
+import { useBreakBorednessContext } from 'src/contexts';
 import { getRandomActivity } from 'src/utils';
 import styled from 'styled-components';
-import DropSpan from '../DropSpan/DropSpan';
+import { DropSpan } from 'src/components';
 
-const StyledTypeBar = styled.div.attrs(({ theme }) => {
-  const { bgColor, textColor } = theme;
-
-  return {
-    $bgColor: bgColor,
-    $textColor: textColor,
-  };
-})`
+const StyledTypeBar = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: ${({ $textColor }) => $textColor};
-  background: ${({ $bgColor }) => $bgColor};
+  color: ${({ theme }) => theme.bgColor};
 
   margin-top: 3.5rem;
   height: 3.1rem;
@@ -27,19 +19,14 @@ const StyledTypeBar = styled.div.attrs(({ theme }) => {
   }
 `;
 
-const StyledTypeSelectButton = styled.button.attrs(({ theme }) => {
-  const { fgColor, textColor } = theme;
-
-  return {
-    $bgColor: fgColor,
-    $textColor: textColor,
-  };
-})`
+const StyledTypeSelectButton = styled.button`
   padding: 0 1rem;
   font-size: 0.8rem;
   letter-spacing: 0.2rem;
   height: 70%;
-  background: ${({ $bgColor }) => $bgColor};
+
+  color: ${({ theme }) => theme.bgColor};
+  background: ${({ theme }) => theme.fgColor};
   border-radius: 40px;
 
   text-transform: uppercase;
@@ -47,7 +34,7 @@ const StyledTypeSelectButton = styled.button.attrs(({ theme }) => {
   cursor: pointer;
   transition: all 0.05s ease-in-out;
 
-  box-shadow: 1px 3px 15px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.3);
 
   &:hover {
     transform: scale(103%);

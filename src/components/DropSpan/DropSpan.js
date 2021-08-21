@@ -1,15 +1,6 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-
-const drop = keyframes`
-  from {
-    transform: translate(0, -150%);
-  }
-
-  to {
-    transform: translate(0, 0);
-  }
-`;
+import { drop } from 'src/styles';
+import styled from 'styled-components';
 
 const StyledDropSpan = styled.span`
   vertical-align: bottom;
@@ -19,7 +10,7 @@ const StyledDropSpan = styled.span`
   span {
     font-weight: bold;
     display: inline-block;
-    animation: ${drop} 0.3s ease-in-out;
+    animation: ${drop} 0.4s ease-in-out;
   }
 `;
 

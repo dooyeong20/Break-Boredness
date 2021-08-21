@@ -1,12 +1,11 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
-import Spinner from 'src/components/Spinner/Spinner';
-import ResultContent from 'src/components/ResultContent/ResultContent';
+import { ResultContent, Spinner } from 'src/components';
+import { useBreakBorednessContext } from 'src/contexts';
+import styled from 'styled-components';
 
 const StyledResultBackground = styled.div`
   position: absolute;
-  z-index: 1;
+  z-index: 3;
 
   top: 0;
   bottom: 0;

@@ -1,15 +1,10 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
-import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
-import DropSpan from '../DropSpan/DropSpan';
+import { DropSpan } from 'src/components';
+import { useBreakBorednessContext } from 'src/contexts';
+import styled from 'styled-components';
 
-const StyledContent = styled.section.attrs(({ theme }) => {
-  const { textColor } = theme;
-  return {
-    $textColor: textColor,
-  };
-})`
-  color: ${({ $textColor }) => $textColor};
+const StyledContent = styled.section`
+  color: ${({ theme }) => theme.bgColor};
 
   margin-top: 3rem;
 
@@ -22,6 +17,7 @@ const StyledContent = styled.section.attrs(({ theme }) => {
   .big {
     font-size: 1.3rem;
     font-weight: bold;
+    color: ${({ theme }) => theme.bgColor};
   }
 `;
 

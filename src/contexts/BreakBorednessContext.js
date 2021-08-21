@@ -4,6 +4,7 @@ const BreakBorednessContext = createContext();
 
 const initialState = {
   category: 'random',
+  mode: 'light',
   isLoading: false,
   result: null,
 };
@@ -31,6 +32,11 @@ const reducer = (state, action) => {
         ...state,
         result: null,
         isLoading: false,
+      };
+    case 'MODE':
+      return {
+        ...state,
+        mode: state.mode === 'light' ? 'dark' : 'light',
       };
     default:
       throw new Error('Unhandled action.type !');

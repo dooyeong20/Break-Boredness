@@ -1,20 +1,11 @@
-import React, { useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { useBreakBorednessContext } from 'src/contexts/BreakBorednessContext';
-import { ACTIVITY_TYPES } from 'src/globalVars';
-import { RiMoneyDollarCircleLine } from 'react-icons/ri';
+import React from 'react';
 import { FaUserFriends } from 'react-icons/fa';
+import { RiMoneyDollarCircleLine } from 'react-icons/ri';
+import { useBreakBorednessContext } from 'src/contexts';
+import { activityTypes } from 'src/globalVars';
+import { slideUp } from 'src/styles';
 import { getParticipantsText, getPriceText } from 'src/utils';
-
-const slideUp = keyframes`
-  from {
-    transform: translate(0, 200%);
-  }
-
-  to {
-    transform: translate(0, 0);
-  }
-`;
+import styled from 'styled-components';
 
 const StyledResultContent = styled.section`
   position: absolute;
@@ -24,9 +15,9 @@ const StyledResultContent = styled.section`
   width: 19rem;
   border-radius: 10px;
 
-  color: ${({ theme }) => theme.textColor};
-  background: #f8f9fa;
-  box-shadow: 0 0 2rem 0 rgba(255, 255, 255, 0.4);
+  color: ${({ theme }) => theme.bgColor};
+  background: ${({ theme }) => theme.fgColor};
+  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.4);
 
   animation: ${slideUp} 0.6s ease-in-out;
 
@@ -37,7 +28,7 @@ const StyledResultContent = styled.section`
 
     svg {
       font-size: 6rem;
-      fill: #343a40;
+      fill: ${({ theme }) => theme.bgColor};
     }
   }
 
@@ -49,14 +40,14 @@ const StyledResultContent = styled.section`
 
   button {
     position: absolute;
-    color: #f8f9fa;
+    color: ${({ theme }) => theme.fgColor};
     bottom: 1rem;
     left: 50%;
     transform: translate(-50%, 0);
     text-transform: uppercase;
     padding: 1rem 2rem;
 
-    background: #343a40;
+    background: ${({ theme }) => theme.bgColor};
     border-radius: 5px;
 
     cursor: pointer;
@@ -65,12 +56,12 @@ const StyledResultContent = styled.section`
     box-shadow: 1px 1px 0.3rem 0 rgba(0, 0, 0, 0.6);
 
     &:hover {
-      background: #495057;
+      background: ${({ theme }) => theme.bgColor};
       transform: translate(-50%, 0) scale(105%);
     }
 
     &:active {
-      background: #343a40;
+      background: ${({ theme }) => theme.bgColor};
       transform: translate(-50%, 0) scale(100%);
     }
   }
@@ -117,7 +108,7 @@ export default function ResultContent({
     dispatch,
   } = useBreakBorednessContext();
 
-  const SVG = ACTIVITY_TYPES.find(({ title }) => title === category).SVG;
+  const SVG = activityTypes.find(({ title }) => title === category).SVG;
 
   const clickHandler = () => {
     dispatch({ type: 'RESET' });

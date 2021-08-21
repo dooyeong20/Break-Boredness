@@ -1,7 +1,11 @@
 export const theme = {
-  main: {
+  light: {
     fgColor: '#fff',
     bgColor: '#495057',
-    textColor: '#495057',
+  },
+
+  dark: {
+    fgColor: '#495057',
+    bgColor: '#fff',
   },
 };
