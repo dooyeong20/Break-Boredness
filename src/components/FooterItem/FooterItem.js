@@ -1,15 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledFooterItem = styled.a.attrs(({ theme }) => {
-  const { fgColor, bgColor, textColor } = theme;
-
-  return {
-    $fgColor: fgColor,
-    $bgColor: bgColor,
-    $textColor: textColor,
-  };
-})`
+const StyledFooterItem = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +11,7 @@ const StyledFooterItem = styled.a.attrs(({ theme }) => {
   box-sizing: content-box;
   padding: 0.3rem;
 
-  color: ${({ $textColor }) => $textColor};
+  color: ${({ theme }) => theme.bgColor};
 
   letter-spacing: 0.1rem;
   font-size: 0.8rem;
@@ -31,12 +23,13 @@ const StyledFooterItem = styled.a.attrs(({ theme }) => {
 
   svg {
     font-size: 5rem;
-    fill: ${({ $textColor }) => $textColor};
+    fill: ${({ theme }) => theme.bgColor};
   }
 
   p {
     margin: 0;
     margin-top: 0.3rem;
+    color: ${({ theme }) => theme.bgColor};
   }
 
   &:hover {

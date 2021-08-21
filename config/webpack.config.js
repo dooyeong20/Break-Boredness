@@ -75,5 +75,8 @@ module.exports = {
       cache: true,
       fix: true,
     }),
+    new webpack.DefinePlugin({
+      'process.env.END_POINT': JSON.stringify(process.env.END_POINT),
+    }),
   ],
 };

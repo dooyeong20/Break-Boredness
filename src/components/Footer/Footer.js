@@ -1,16 +1,9 @@
 import React from 'react';
+import { footerItems } from 'src/globalVars';
 import styled from 'styled-components';
-import FooterItem from '../FooterItem/FooterItem';
-import { FOOTER_ITEMS } from 'src/globalVars';
+import { FooterItem } from 'src/components';
 
-const StyledFooter = styled.footer.attrs(({ theme }) => {
-  const { fgColor, bgColor, textColor } = theme;
-  return {
-    $fgColor: fgColor,
-    $bgColor: bgColor,
-    $textColor: textColor,
-  };
-})`
+const StyledFooter = styled.footer`
   width: 100%;
   height: 4rem;
   padding: 5rem 0;
@@ -23,7 +16,7 @@ const StyledFooter = styled.footer.attrs(({ theme }) => {
 export default function Footer() {
   return (
     <StyledFooter>
-      {FOOTER_ITEMS.map(item => (
+      {footerItems.map(item => (
         <FooterItem key={item.id} item={item} />
       ))}
     </StyledFooter>

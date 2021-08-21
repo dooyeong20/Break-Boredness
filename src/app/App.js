@@ -1,13 +1,12 @@
 import React from 'react';
-import { GlobalStyle } from 'src/globalVars';
-import { theme } from 'src/styles/theme';
+import { BreakBoredness } from 'src/components';
+import { BreakBorednessContextProvider } from 'src/contexts';
+import { GlobalStyle, theme } from 'src/styles';
 import { ThemeProvider } from 'styled-components';
-import BreakBoredness from '../components/BreakBoredness/BreakBoredness';
-import { BreakBorednessContextProvider } from '../contexts/BreakBorednessContext';
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme.main}>
+    <ThemeProvider theme={theme.light}>
       <GlobalStyle />
       <BreakBorednessContextProvider>
         <BreakBoredness />
