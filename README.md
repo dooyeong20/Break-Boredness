@@ -10,6 +10,8 @@
 
 [Try Break Boredness](https://dooyeong20.github.io/Break-Boredness/)
 
+[Tistory - (간단 프로젝트 Break-Boredness)](https://dooyeong20.tistory.com/27)
+
 <b>Escape from boring time and get some fun! </b>
 
 </div>
